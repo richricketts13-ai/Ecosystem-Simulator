@@ -1,18 +1,25 @@
-## Getting Started
+# Ecosystem Simulator
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+A Java-based ecosystem simulation featuring Grass, Rabbits, and Foxes interacting in a dynamic food chain.
 
-## Folder Structure
+## Features
+- Grass growth and reproduction
+- Rabbits consume Grass and reproduce
+- Foxes hunt Rabbits for survival
+- Population tracking each round
+- Final simulation summaries
+- Object-oriented design using inheritance and polymorphism
 
-The workspace contains two folders by default, where:
+## Concepts Practiced
+- Inheritance
+- Polymorphism
+- Lists and iteration
+- Simulation loops
+- State management
+- Ecosystem balancing
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Planned Future Versions
+- Organism personalities and traits
+- Advanced ecosystem balancing
+- Movement and spatial systems
+- Expanded statistics and analytics
