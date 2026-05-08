@@ -16,16 +16,25 @@ public class Main {
         world.add(new Grass("Grass7", 5));
         world.add(new Grass("Grass8", 5));
         world.add(new Grass("Grass9", 5));
-        world.add(new Grass("Grass10", 5));   
+        world.add(new Grass("Grass10", 5)); 
+        world.add(new Grass("Grass11", 5));
+        world.add(new Grass("Grass12", 5)); 
+        world.add(new Grass("Grass13", 5)); 
+        world.add(new Grass("Grass14", 5));
+        world.add(new Grass("Grass15", 5));
+        world.add(new Grass("Grass16", 5));  
 
-        world.add(new Rabbit("Rabbit1", 10));
-        world.add(new Rabbit("Rabbit2", 10));
-        world.add(new Rabbit("Rabbit3", 10));
-        world.add(new Rabbit("Rabbit4", 10));
-        world.add(new Rabbit("Rabbit5", 10));
+        world.add(new Rabbit("Rabbit1", 10, "Efficient"));
+        world.add(new Rabbit("Rabbit2", 10, "Efficient"));
+        world.add(new Rabbit("Rabbit3", 10, "Cautious"));
+        world.add(new Rabbit("Rabbit4", 10, "Cautious"));
+        world.add(new Rabbit("Rabbit5", 10, "Efficient"));
 
         world.add(new Fox("Fox1", 12));
         world.add(new Fox("Fox2", 12));
+        world.add(new Fox("Fox3", 12));
+       
+       
 
         int round = 1;
         
@@ -35,6 +44,7 @@ public class Main {
              int rabbitCount = 0;
              int foxCount = 0;
              int grassCount = 0;
+             
            
             System.out.println("Round " + round);
 
@@ -89,9 +99,32 @@ public class Main {
                 finalGrassCount++;
             }
         }
+
+       
+        int efficientRabbitCount = 0;
+        int cautiousRabbitCount = 0;
+
+        for (Organism organism : world) {
+       
+
+            if (organism instanceof Rabbit) {
+                if (((Rabbit) organism).getTrait().equals("Efficient")) {
+                    System.out.println(organism.getName() + " is an Efficient Rabbit with energy: " + organism.getEnergy());
+                     efficientRabbitCount++;
+                } else if (((Rabbit) organism).getTrait().equals("Cautious")) {
+                    System.out.println(organism.getName() + " is a Cautious Rabbit with energy: " + organism.getEnergy());
+                    cautiousRabbitCount++;
+                }
+            }
+            
+        }
+
+        
         System.out.println("Simulation Summary after " + round + " rounds.");
         System.out.println("Final Rabbit Count: " + finalRabbitCount);
         System.out.println("Final Fox Count: " + finalFoxCount);
         System.out.println("Final Grass Count: " + finalGrassCount);
+        System.out.println("Efficient Rabbits: " + efficientRabbitCount);
+        System.out.println("Cautious Rabbits: " + cautiousRabbitCount);
     }
 }

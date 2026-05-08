@@ -13,7 +13,7 @@ public class Grass extends Organism {
 
         int growthChance = random.nextInt(100);
 
-        if (growthChance < 8) { // 8% chance to grow
+        if (growthChance < 15) { // 15% chance to grow
             Grass newGrass = new Grass(this.getName() + "_offspring", 5); // Create new grass with initial energy
             newBorns.add(newGrass); // Add new grass to the list of new organisms
         }
