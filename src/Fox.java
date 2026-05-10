@@ -12,13 +12,14 @@ public class Fox extends Organism {
     public void act(List<Organism> world, List<Organism> newBorns) {
 
         Rabbit rabbit = null;
-
+        
+        move();
         this.setEnergy(this.getEnergy() - 2);
-
-        System.out.println("" + this.getName() + " moves and loses energy. Current energy: " + this.getEnergy());
+        System.out.println(this.getName() + " moves to (" + this.getX() + ", " + this.getY() + ") and loses energy. Current energy: " + this.getEnergy());
+       
 
         for (Organism organism : world) {
-            if (organism instanceof Rabbit && organism.isAlive()) {
+            if (organism instanceof Rabbit && organism.isAlive() && nearby(organism)) {
                 rabbit = (Rabbit) organism;
                 break;
             }
@@ -30,7 +31,7 @@ public class Fox extends Organism {
          if (successChance < 70) { // 70% chance to successfully catch the rabbit
             this.setEnergy(this.getEnergy() + 3); // Gain energy from eating rabbit
             rabbit.setAlive(false); // Rabbit is eaten and dies
-            System.out.println(this.getName() + " successfully catches and eats " + rabbit.getName() + " and gains energy! Current energy: " + this.getEnergy()); 
+            System.out.println(this.getName() + " successfully catches and eats " + rabbit.getName() +"at (" + rabbit.getX() + ", " + rabbit.getY() + ") and gains energy! Current energy: " + this.getEnergy()); 
          } else {
             System.out.println(this.getName() + " fails to catch " + rabbit.getName() + ".");
             this.setEnergy(this.getEnergy() - 1); // Lose additional energy from failing to catch the rabbit

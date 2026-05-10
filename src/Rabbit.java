@@ -14,12 +14,13 @@ public class Rabbit extends Organism {
 
         for (Organism organism : world) {
             
-            if (organism instanceof Grass && organism.isAlive()) { 
+            if (organism instanceof Grass && organism.isAlive() && nearby(organism)) { 
 
                 if (this.trait.equals("Efficient")) {
 
                     this.setEnergy(this.getEnergy() + 7); // Gain more energy from eating grass if efficient
                     System.out.println(this.getName() + " efficiently eats " + organism.getName() + " and gains more energy!");
+                    System.out.println();
                     
                 } else {
                     this.setEnergy(this.getEnergy() + 5); // Gain energy from eating grass
@@ -34,10 +35,15 @@ public class Rabbit extends Organism {
 
         if (this.trait.equals("Cautious")) {
 
+            move();
+            System.out.println(this.getName() + " moves to " + this.getX() + ", " + this.getY());
             this.setEnergy(this.getEnergy() - 0); // Lose less energy from moving if cautious
             System.out.println("" + this.getName() + " cautiously moves and loses less energy. Current energy: " + this.getEnergy());
+            System.out.println();
         } else {
 
+        move();
+        System.out.println(this.getName() + " moves to " + this.getX() + ", " + this.getY());
         this.setEnergy(this.getEnergy() - 1); // Lose energy from moving
         System.out.println("" + this.getName() + " moves and loses energy. Current energy: " + this.getEnergy());
         }
@@ -57,7 +63,7 @@ public class Rabbit extends Organism {
         if (this.getEnergy() <= 0) {
                 this.setAlive(false); // Rabbit dies if energy drops to 0 or below  
                 System.out.println(this.getName() + " has died due to lack of energy.");
-            }
+        }
     }
 
 

@@ -24,19 +24,38 @@ public class Main {
         world.add(new Grass("Grass15", 5));
         world.add(new Grass("Grass16", 5));  
 
+    
+
         world.add(new Rabbit("Rabbit1", 10, "Efficient"));
         world.add(new Rabbit("Rabbit2", 10, "Efficient"));
         world.add(new Rabbit("Rabbit3", 10, "Cautious"));
         world.add(new Rabbit("Rabbit4", 10, "Cautious"));
         world.add(new Rabbit("Rabbit5", 10, "Efficient"));
 
+       
+
         world.add(new Fox("Fox1", 12));
         world.add(new Fox("Fox2", 12));
         world.add(new Fox("Fox3", 12));
-       
-       
+        
+
+        for (Organism organism : world) {
+            if (organism instanceof Fox) {
+                System.out.println("Fox: " + organism.getName() + "Spawned at: " + organism.getX() + ", " + organism.getY() + ")")  ;
+            }
+            if (organism instanceof Rabbit) {
+                System.out.println("Rabbit: " + organism.getName() + "Spawned at: " + organism.getX() + ", " + organism.getY() + ")")  ;
+            }
+            if (organism instanceof Grass) {
+                System.out.println("Grass: " + organism.getName() + "Spawned at: " + organism.getX() + ", " + organism.getY() + ")")  ;
+            }
+        }
+
+
 
         int round = 1;
+
+        
         
 
         while (!world.isEmpty() && round < 20) {
