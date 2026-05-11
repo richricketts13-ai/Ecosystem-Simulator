@@ -1,8 +1,11 @@
 import java.util.List;
+import java.util.Random;
 
 public class Rabbit extends Organism {
 
     private final String trait;
+
+    private static final Random random = new Random();
 
     public Rabbit(String name, int energy, String trait) {
         super(name, energy);
@@ -53,8 +56,27 @@ public class Rabbit extends Organism {
             this.setEnergy(this.getEnergy() - 6); // Lose energy from reproducing
             System.out.println("" + this.getName() + " reproduces and loses energy. Current energy: " + this.getEnergy());
 
-            Rabbit offspring = new Rabbit(this.getName() + "_offspring", 10, this.trait); // Create offspring with initial energy
-            System.out.println("" + this.getName() + " produces an offspring: " + offspring.getName() + " with trait: " + offspring.trait);
+            String offSpringTrait;
+
+            int randomchance = random.nextInt(100);
+
+            if (this.trait.equals("Efficient") && randomchance < 5) { // 5% chance for trait mutation
+
+                offSpringTrait = "Cautious";
+                System.out.println("Mutation Occurred: " + this.getName() + " produces an offspring: " + this.getName() + "_offspring with mutated trait: " + offSpringTrait);
+            } else if (this.trait.equals("Cautious") && randomchance < 5) {
+
+                offSpringTrait = "Efficient";
+                System.out.println("Mutation Occurred: " + this.getName() + " produces an offspring: " + this.getName() + "_offspring with mutated trait: " + offSpringTrait);
+            } else {
+
+                offSpringTrait = this.trait;    
+            } 
+           
+
+
+            Rabbit offspring = new Rabbit(this.getName() + "_offspring", 10, offSpringTrait); // Create offspring with initial energy
+            System.out.println("" + this.getName() + " produces an offspring: " + offspring.getName() + " with trait: " + offspring.getTrait());
 
             newBorns.add(offspring); // Add offspring to the list of new organisms
             

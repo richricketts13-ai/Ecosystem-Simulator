@@ -23,6 +23,7 @@ public class Main {
         world.add(new Grass("Grass14", 5));
         world.add(new Grass("Grass15", 5));
         world.add(new Grass("Grass16", 5));  
+        System.out.println();
 
     
 
@@ -31,12 +32,14 @@ public class Main {
         world.add(new Rabbit("Rabbit3", 10, "Cautious"));
         world.add(new Rabbit("Rabbit4", 10, "Cautious"));
         world.add(new Rabbit("Rabbit5", 10, "Efficient"));
+         System.out.println();
 
        
 
         world.add(new Fox("Fox1", 12));
         world.add(new Fox("Fox2", 12));
         world.add(new Fox("Fox3", 12));
+         System.out.println();
         
 
         for (Organism organism : world) {
@@ -60,7 +63,8 @@ public class Main {
 
         while (!world.isEmpty() && round < 20) {
 
-             int rabbitCount = 0;
+             int efficientrabbits = 0;
+             int cautiousrabbits = 0;
              int foxCount = 0;
              int grassCount = 0;
              
@@ -78,9 +82,14 @@ public class Main {
 
                 if (!organism.isAlive()) {
                     toRemove.add(organism);
+
                 } else {
                     if (organism instanceof Rabbit) {
-                        rabbitCount++;
+                        if (((Rabbit) organism).getTrait().equals("Efficient")) {
+                            efficientrabbits++;
+                        } else if (((Rabbit) organism).getTrait().equals("Cautious")) {
+                            cautiousrabbits++;
+                        }
                     }
                     if (organism instanceof Fox) {
                         foxCount++;
@@ -96,7 +105,7 @@ public class Main {
             world.removeAll(toRemove);
 
             System.out.println("End of round " + round);
-            System.out.println("Rabbits currently: " + rabbitCount);
+            System.out.println("Rabbits currently: " + efficientrabbits + " Efficient Rabbits and " + cautiousrabbits + " Cautious Rabbits");
             System.out.println("Foxes currently: " + foxCount);  
             System.out.println("Grass currently: " + grassCount); 
                 
