@@ -47,5 +47,12 @@ A Java-based ecosystem simulation featuring Grass, Rabbits, and Foxes interactin
 - Foxes only hunt nearby Rabbits
 - Ecosystem interactions are now location-based
 
+- ## Version 4 Features
+- Added evolutionary mutation system
+- Rabbit traits can mutate during reproduction
+- Added round-by-round trait population tracking
+- Added mutation event logging
+- Trait populations now evolve dynamically over generations
+
 
  
